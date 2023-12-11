@@ -65,24 +65,19 @@ def login_user():
     except Exception as e:
         messagebox.showerror("Помилка", f"Помилка при авторизації: {str(e)}")
 
-# Створення таблиці користувачів при запуску програми
 create_users_table()
 
-# Створення головного вікна
 root = tk.Tk()
 root.title("Реєстрація та авторизація користувача by Vladyslav Kahanets")
 
-# Встановлення розміру вікна в три рази більше
 root.geometry("900x600")
 
-# Кастомний стиль для мінімалістичного дизайну
 root.tk_setPalette(background='#F5F5DC', foreground='#000000')
 root.option_add('*TButton*highlightBackground', '#F5F5DC')
 root.option_add('*TButton*highlightColor', '#F5F5DC')
 root.option_add('*TButton*background', '#D2B48C')
 root.option_add('*TButton*foreground', '#000000')
 
-# Елементи вікна
 label_username = tk.Label(root, text="Логін:", font=('Arial', 12), background='#F5F5DC')
 label_username.pack(pady=5)
 
@@ -104,27 +99,21 @@ entry_age.pack(pady=5)
 label_gender = tk.Label(root, text="Стать:", font=('Arial', 12), background='#F5F5DC')
 label_gender.pack(pady=5)
 
-# Використовуємо tk.StringVar для відстеження вибраного значення статі
 variable_gender = tk.StringVar(root)
-variable_gender.set("Чоловіча")  # Значення за замовчуванням
+variable_gender.set("Чоловіча")  # стоїть по дефолту
 
-# Опції для випадаючого списку статі
 gender_options = ["Чоловіча", "Жіноча"]
 
-# Створення випадаючого списку
 gender_menu = tk.OptionMenu(root, variable_gender, *gender_options)
 gender_menu.config(font=('Arial', 12), background='#D2B48C')
 gender_menu.pack(pady=5)
 
-# Створення стилізованої кнопки для реєстрації
 button_register = tk.Button(root, text="Зареєструвати", command=register_user, font=('Arial', 12),
                             background='#D2B48C', activebackground='#B8860B', foreground='#000000')
 button_register.pack(pady=10)
 
-# Створення стилізованої кнопки для входу
 button_login = tk.Button(root, text="Увійти", command=login_user, font=('Arial', 12),
                          background='#D2B48C', activebackground='#B8860B', foreground='#000000')
 button_login.pack(pady=10)
 
-# Запуск головного циклу програми
 root.mainloop()
